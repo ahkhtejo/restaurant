@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>تفاصيل المنتج</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 col-md-4 col-xl-6 style="    height: 100%;">
+        <ion-card style="">
+          <img [src]="productDetails.image" />
+        </ion-card>
+      </ion-col>
+      <ion-col col-6 col-md-4 col-xl-6>
+        <ion-card style="    height: 100%;">
+          <ion-card-header>
+            الوصف
+          </ion-card-header>
+          <ion-card-content>
+            {{productDetails.description}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <br>
+      <ion-item>
+        السعر
+        <ion-badge item-right>
+          {{productDetails.price}}
+        </ion-badge>
+      </ion-item>
+    </ion-row>
+  </ion-grid>
+</ion-content>

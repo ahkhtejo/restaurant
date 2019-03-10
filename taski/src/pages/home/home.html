@@ -1,0 +1,64 @@
+<ion-content>
+  <div style="width :100%">
+    <div style="">
+      <table>
+        <tr>
+          <ion-card style="width :80%;height: 100% !important;text-align: center;align-items: center;">
+            <h1>ألفاتورة</h1>
+            <h2> فاتورة رقم : {{invoiceNo}} </h2>
+            <ion-card style="background-color: darkgoldenrod;width: 95%;text-align: center;align-items: center;margin-bottom: 20px"
+              *ngFor="let sprode of sletedar">
+              <ion-list style="color:black !important">
+                <ion-item>
+                  <ion-thumbnail item-start>
+                    <img [src]="sprode.image">
+                  </ion-thumbnail>
+                  <h2> {{sprode.name}}</h2>
+                  <h2>{{sprode.price}} ريال </h2>
+                </ion-item>
+
+                <h2> الاضافات</h2>
+                <ion-item *ngFor="let pk of pikar">
+                  <ion-label>{{pk}} </ion-label>
+                  <ion-checkbox color="dark" checked="fulse"></ion-checkbox>
+                </ion-item>
+                
+              </ion-list>
+            </ion-card>
+            <h2> مجموع : {{total}}ريال</h2>
+
+            <h2> الضريبة : {{Vat}}ريال</h2>
+            <h2> المجموع النهائي : {{totalVat}}ريال</h2>
+            <button ion-button color="secondary" round (click)="reset()">
+              <ion-icon name="paper">طباعة</ion-icon>
+            </button>
+          </ion-card>
+          <td style="width:70%;">
+            <ion-grid>
+              <ion-row>
+                <ion-col col-12 col-md-6 col-xl-6 *ngFor="let product of allProducts">
+                  <ion-card (click)="goToProductDetailPage(product)">
+                    <div class="items">
+                      <img [src]="product.image" />
+                    </div>
+                    <ion-item>
+                        <h1>{{product.name}}</h1>
+                        <br>
+                      
+                      <ion-badge item-right>
+                          <h1>السعر</h1> {{product.price}}
+                      </ion-badge>
+                    </ion-item>
+                  </ion-card>
+                  <button ion-button color="secondary" round (click)="sleted(product)">
+                    <ion-icon name="restaurant"></ion-icon>طلب 
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</ion-content>
